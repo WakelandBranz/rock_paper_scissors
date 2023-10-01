@@ -180,7 +180,7 @@ impl RPS {
 
                 if game_result == 1 { // if user won
                     self.user_information.user_wins.total += 1.0;
-                    self.user_information.user_wins.rock += 1.0;
+                    self.user_information.user_wins.paper += 1.0;
                 }
             }
             "scissors" => {
@@ -188,7 +188,7 @@ impl RPS {
 
                 if game_result == 1 {
                     self.user_information.user_wins.total += 1.0;
-                    self.user_information.user_wins.rock += 1.0;
+                    self.user_information.user_wins.scissors += 1.0;
                 }
             }
             _ => panic!("This should never happen, check update_statistics")
@@ -233,7 +233,7 @@ impl RPS {
 
     fn print_move_history (&self) {
         // yikes
-        println!("--- User move histories ---\nRock -> {} | Paper -> {} | Scissors - > {}", self.get_move_history(0), self.get_move_history(1), self.get_move_history(2));
+        println!("--- User move histories ---\nTotal moves -> {} Rock -> {} | Paper -> {} | Scissors - > {}", self.get_move_history(0), self.get_move_history(1), self.get_move_history(2), self.get_move_history(3));
     }
 
     fn print_user_win_rate (&self) {

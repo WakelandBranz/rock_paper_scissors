@@ -18,8 +18,10 @@ fn main() {
         rps.print_statistics();
 
         
-        rps.play_game();
-        rps.update_statistics(1, "rock");
+        // i need to read back up on how immutable/mutable references work, this code errors out if I input res.0 and res.1 into rps.update_statistics
+        let mut res = rps.play_game();
+
+        rps.update_statistics(res.0, "rock"); // currently hardcoded as rock to avoid errors
         
         
 

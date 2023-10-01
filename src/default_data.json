@@ -1,0 +1,14 @@
+{
+    "UserWinRate": {
+        "overall": 100,
+        "rock": 1,
+        "paper": 1,
+        "scissors": 1
+    },
+    "MoveHistories": {
+        "total": 3,
+        "rock": 1,
+        "paper": 1,
+        "scissors_": 1
+    }
+}

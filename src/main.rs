@@ -2,6 +2,9 @@
 mod rps;
 use crate::rps::RPS;
 
+use std::io;
+use std::io::Write;
+
 fn main() {
     let mut completed: bool = false;
     let mut iter: u8 = 0;
@@ -27,7 +30,8 @@ fn main() {
 
         
 
-        println!("Would you like to play again? | Y / N |");
+        print!("Would you like to play again? | Y / N |:");
+        io::stdout().flush().expect("Unable to flush stdout");
 
         // stores input once assigned in input_size
         let mut user_input: String = String::new();

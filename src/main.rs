@@ -30,7 +30,7 @@ fn main() {
 
         
 
-        print!("Would you like to play again? | Y / N |:");
+        print!("Would you like to play again? | Y / N |: ");
         io::stdout().flush().expect("Unable to flush stdout");
 
         // stores input once assigned in input_size

@@ -18,6 +18,15 @@ pub struct RPS {
     user_information: UserInformation,
 }
 
+// NOTES ON WHAT TO DO TO FIX THIS ERROR:
+/*
+ * Rather than doing the current data organization scheme you are doing right now, store information in an RPS struct, initialize that struct, but only let it have one function that 
+ * reads and writes data (e.g. just leave in update_information) but have the rest of the functions outside of RPS that just print data from that struct.
+ * this will hopefully avoid the error that you are currently encountering.
+ * I'm not sure if this is the fix to the current issue, but it sure seems like this whole project has been in vain because I wrote it with the wrong design
+ * scheme in mind from the start.
+ */
+
 impl RPS {
     pub fn new (is_debugging: bool) -> Self {
         let path = "src/data.json";
@@ -180,7 +189,7 @@ impl RPS {
 
                 if game_result == 1 { // if user won
                     self.user_information.user_wins.total += 1.0;
-                    self.user_information.user_wins.paper += 1.0;
+                    self.user_information.user_wins.rock += 1.0;
                 }
             }
             "scissors" => {
@@ -188,7 +197,7 @@ impl RPS {
 
                 if game_result == 1 {
                     self.user_information.user_wins.total += 1.0;
-                    self.user_information.user_wins.scissors += 1.0;
+                    self.user_information.user_wins.rock += 1.0;
                 }
             }
             _ => panic!("This should never happen, check update_statistics")
@@ -233,7 +242,7 @@ impl RPS {
 
     fn print_move_history (&self) {
         // yikes
-        println!("--- User move histories ---\nTotal moves -> {} Rock -> {} | Paper -> {} | Scissors - > {}", self.get_move_history(0), self.get_move_history(1), self.get_move_history(2), self.get_move_history(3));
+        println!("--- User move histories ---\nRock -> {} | Paper -> {} | Scissors - > {}", self.get_move_history(0), self.get_move_history(1), self.get_move_history(2));
     }
 
     fn print_user_win_rate (&self) {
